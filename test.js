@@ -123,7 +123,7 @@ router.route('/recipes/:recipe_string')
     });
     
 
- router.route('/recipe/:recipe_id')
+ router.route('/similar/:recipe_id')
 	.get(function(req, res) {
 		unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?instructionsRequired=true&limitLicense=false&number=10&offset=0&query=" + req.params.recipe_id)
 			.header("X-Mashape-Key", "7NFUuGWrn4msh6xdTxS0rv6FpdH6p14BsRyjsng0MeEmS0c6L2")
@@ -131,5 +131,16 @@ router.route('/recipes/:recipe_string')
 			.end(function (result) {
 			  	res.json([result.status, result.headers, result.body]);
 			});       
+        
+    });
+
+    router.route('/id/:recipe_id')
+	.get(function(req, res) {  
+		unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + req.params.recipe_id + "/analyzedInstructions?stepBreakdown=true")
+		.header("X-Mashape-Key", "7NFUuGWrn4msh6xdTxS0rv6FpdH6p14BsRyjsng0MeEmS0c6L2")
+		.header("Accept", "application/json")
+		.end(function (result) {
+		     res.json(result.body[0].steps);
+		});  
         
     });
