@@ -106,7 +106,7 @@ router.use(function(req, res, next) {
 });
 
 
-router.route('/recipes/:recipe_string')
+router.route('/intend/:recipe_string')
 	.get(function(req, res) {
 		conversation.message({
 		input: { text: req.params.recipe_string },
