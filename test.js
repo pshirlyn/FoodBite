@@ -134,7 +134,7 @@ router.route('/recipes/:recipe_string')
         
     });
 
-    router.route('/id/:recipe_id')
+    router.route('/recipe/:recipe_id')
 	.get(function(req, res) {  
 		unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + req.params.recipe_id + "/analyzedInstructions?stepBreakdown=true")
 		.header("X-Mashape-Key", "7NFUuGWrn4msh6xdTxS0rv6FpdH6p14BsRyjsng0MeEmS0c6L2")
