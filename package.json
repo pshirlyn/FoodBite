@@ -2,10 +2,10 @@
   "name": "foodbits",
   "version": "1.0.0",
   "description": "hshacks",
-  "main": "index.js",
+  "main": "test.js",
   "scripts": {
     "test": "console.log(\"test\");",
-    "start": "node index.js"
+    "start": "node test.js"
   },
   "author": "shatayu",
   "license": "ISC",
