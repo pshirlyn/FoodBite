@@ -5,7 +5,7 @@
   "main": "test.js",
   "scripts": {
     "test": "console.log(\"test\");",
-    "start": "node conversation.js"
+    "start": "node test.js"
   },
   "author": "shatayu",
   "license": "ISC",
