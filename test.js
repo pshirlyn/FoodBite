@@ -144,3 +144,13 @@ router.route('/recipes/:recipe_string')
 		});  
         
     });
+
+     router.route('/id/:recipe_name')
+	.get(function(req, res) {     
+        unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?instructionsRequired=true&limitLicense=false&number=10&offset=0&query=" + req.params.recipe_name)
+			.header("X-Mashape-Key", "7NFUuGWrn4msh6xdTxS0rv6FpdH6p14BsRyjsng0MeEmS0c6L2")
+			.header("Accept", "application/json")
+			.end(function (result) {
+			  	res.json([result.status, result.headers, result.body]);
+			});
+    });
